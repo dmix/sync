@@ -7,9 +7,20 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SCEvents.h"
+#import "WatchController.h"
 
-@interface DAppDelegate : NSObject <NSApplicationDelegate>
+@interface DAppDelegate : NSObject <NSApplicationDelegate> {
+  IBOutlet NSMenu *statusMenu;
+  NSStatusItem *statusItem;
+  
+}
 
-@property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, retain) IBOutlet NSMenu *statusMenu;
+@property (nonatomic, retain) NSStatusItem *statusItem;
+
+- (void)updateStatusMenu;
+- (void)startWatching;
+- (IBAction)showAbout:(id)sender;
 
 @end

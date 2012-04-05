@@ -13,7 +13,41 @@
 		29427D811511215B00E90535 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 29427D7F1511215B00E90535 /* Credits.rtf */; };
 		29427D841511215B00E90535 /* DAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29427D831511215B00E90535 /* DAppDelegate.m */; };
 		29427D871511215C00E90535 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29427D851511215C00E90535 /* MainMenu.xib */; };
+		29427D941511217600E90535 /* SCEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 29427D8F1511217600E90535 /* SCEvent.m */; };
+		29427D951511217600E90535 /* SCEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 29427D911511217600E90535 /* SCEvents.m */; };
+		29427D991511219300E90535 /* WatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29427D981511219300E90535 /* WatchController.m */; };
+		29427DA4151126AB00E90535 /* app.png in Resources */ = {isa = PBXBuildFile; fileRef = 29427DA2151126AB00E90535 /* app.png */; };
+		29427DA5151126AB00E90535 /* app.tif in Resources */ = {isa = PBXBuildFile; fileRef = 29427DA3151126AB00E90535 /* app.tif */; };
+		2962883A152BEADE0088A6E4 /* Growl-WithInstaller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29628839152BEADE0088A6E4 /* Growl-WithInstaller.framework */; };
+		2962883C152BEB050088A6E4 /* Growl-WithInstaller.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 29628839152BEADE0088A6E4 /* Growl-WithInstaller.framework */; };
+		2982A4C115292B380048F029 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 2982A4C015292B380048F029 /* Growl Registration Ticket.growlRegDict */; };
+		2982A4C415292CFA0048F029 /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2982A4C315292CFA0048F029 /* NotificationsController.m */; };
+		29932F4B1527F7D1002609C9 /* MGPreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F4A1527F7D1002609C9 /* MGPreferencePanel.m */; };
+		29932F6815280679002609C9 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F5915280679002609C9 /* AFURLConnectionOperation.m */; };
+		29932F6915280679002609C9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F5B15280679002609C9 /* AFHTTPRequestOperation.m */; };
+		29932F6A15280679002609C9 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F5D15280679002609C9 /* AFJSONRequestOperation.m */; };
+		29932F6B15280679002609C9 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F5F15280679002609C9 /* AFXMLRequestOperation.m */; };
+		29932F6C15280679002609C9 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F6115280679002609C9 /* AFPropertyListRequestOperation.m */; };
+		29932F6D15280679002609C9 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F6315280679002609C9 /* AFHTTPClient.m */; };
+		29932F6E15280679002609C9 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F6515280679002609C9 /* AFImageRequestOperation.m */; };
+		29932F6F15280679002609C9 /* AFJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F6715280679002609C9 /* AFJSONUtilities.m */; };
+		29932F731528068B002609C9 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F721528068B002609C9 /* JSONKit.m */; };
+		29932F7715280735002609C9 /* DApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F7615280735002609C9 /* DApi.m */; };
+		29932F7A152808A0002609C9 /* UsersController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F79152808A0002609C9 /* UsersController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2962883B152BEAEB0088A6E4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2962883C152BEB050088A6E4 /* Growl-WithInstaller.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		29427D6C1511215B00E90535 /* Sync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sync.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,14 +55,53 @@
 		29427D731511215B00E90535 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		29427D741511215B00E90535 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		29427D751511215B00E90535 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		29427D781511215B00E90535 /* Sync-Info.plist */ = {isa = PBXFileReference; path = "Sync-Info.plist"; sourceTree = "<group>"; };
+		29427D781511215B00E90535 /* Sync-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sync-Info.plist"; sourceTree = "<group>"; };
 		29427D7A1511215B00E90535 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		29427D7C1511215B00E90535 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		29427D7E1511215B00E90535 /* Sync-Prefix.pch */ = {isa = PBXFileReference; path = "Sync-Prefix.pch"; sourceTree = "<group>"; };
+		29427D7E1511215B00E90535 /* Sync-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sync-Prefix.pch"; sourceTree = "<group>"; };
 		29427D801511215B00E90535 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		29427D821511215B00E90535 /* DAppDelegate.h */ = {isa = PBXFileReference; path = DAppDelegate.h; sourceTree = "<group>"; };
+		29427D821511215B00E90535 /* DAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DAppDelegate.h; sourceTree = "<group>"; };
 		29427D831511215B00E90535 /* DAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DAppDelegate.m; sourceTree = "<group>"; };
 		29427D861511215C00E90535 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29427D8E1511217600E90535 /* SCEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEvent.h; sourceTree = "<group>"; };
+		29427D8F1511217600E90535 /* SCEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEvent.m; sourceTree = "<group>"; };
+		29427D901511217600E90535 /* SCEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEvents.h; sourceTree = "<group>"; };
+		29427D911511217600E90535 /* SCEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEvents.m; sourceTree = "<group>"; };
+		29427D921511217600E90535 /* SCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConstants.h; sourceTree = "<group>"; };
+		29427D931511217600E90535 /* SCEventListenerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEventListenerProtocol.h; sourceTree = "<group>"; };
+		29427D971511219300E90535 /* WatchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchController.h; sourceTree = "<group>"; };
+		29427D981511219300E90535 /* WatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchController.m; sourceTree = "<group>"; };
+		29427DA2151126AB00E90535 /* app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app.png; sourceTree = "<group>"; };
+		29427DA3151126AB00E90535 /* app.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = app.tif; sourceTree = "<group>"; };
+		29628839152BEADE0088A6E4 /* Growl-WithInstaller.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "Growl-WithInstaller.framework"; sourceTree = "<group>"; };
+		2982A4C015292B380048F029 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		2982A4C215292CFA0048F029 /* NotificationsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsController.h; sourceTree = "<group>"; };
+		2982A4C315292CFA0048F029 /* NotificationsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsController.m; sourceTree = "<group>"; };
+		29932F491527F7D1002609C9 /* MGPreferencePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPreferencePanel.h; sourceTree = "<group>"; };
+		29932F4A1527F7D1002609C9 /* MGPreferencePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPreferencePanel.m; sourceTree = "<group>"; };
+		29932F5715280679002609C9 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		29932F5815280679002609C9 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		29932F5915280679002609C9 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		29932F5A15280679002609C9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		29932F5B15280679002609C9 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		29932F5C15280679002609C9 /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		29932F5D15280679002609C9 /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		29932F5E15280679002609C9 /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		29932F5F15280679002609C9 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		29932F6015280679002609C9 /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		29932F6115280679002609C9 /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		29932F6215280679002609C9 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		29932F6315280679002609C9 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		29932F6415280679002609C9 /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		29932F6515280679002609C9 /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		29932F6615280679002609C9 /* AFJSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONUtilities.h; sourceTree = "<group>"; };
+		29932F6715280679002609C9 /* AFJSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONUtilities.m; sourceTree = "<group>"; };
+		29932F711528068B002609C9 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		29932F721528068B002609C9 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		29932F7515280735002609C9 /* DApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DApi.h; sourceTree = "<group>"; };
+		29932F7615280735002609C9 /* DApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DApi.m; sourceTree = "<group>"; };
+		29932F78152808A0002609C9 /* UsersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersController.h; sourceTree = "<group>"; };
+		29932F79152808A0002609C9 /* UsersController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29427D711511215B00E90535 /* Cocoa.framework in Frameworks */,
+				2962883A152BEADE0088A6E4 /* Growl-WithInstaller.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +137,7 @@
 		29427D6F1511215B00E90535 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29628839152BEADE0088A6E4 /* Growl-WithInstaller.framework */,
 				29427D701511215B00E90535 /* Cocoa.framework */,
 				29427D721511215B00E90535 /* Other Frameworks */,
 			);
@@ -82,6 +157,9 @@
 		29427D761511215B00E90535 /* Sync */ = {
 			isa = PBXGroup;
 			children = (
+				29932F551528064F002609C9 /* Vendor */,
+				29427D961511218800E90535 /* Controllers */,
+				29427D8D1511216D00E90535 /* Lib */,
 				29427D821511215B00E90535 /* DAppDelegate.h */,
 				29427D831511215B00E90535 /* DAppDelegate.m */,
 				29427D851511215C00E90535 /* MainMenu.xib */,
@@ -93,6 +171,9 @@
 		29427D771511215B00E90535 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2982A4C015292B380048F029 /* Growl Registration Ticket.growlRegDict */,
+				29427DA2151126AB00E90535 /* app.png */,
+				29427DA3151126AB00E90535 /* app.tif */,
 				29427D781511215B00E90535 /* Sync-Info.plist */,
 				29427D791511215B00E90535 /* InfoPlist.strings */,
 				29427D7C1511215B00E90535 /* main.m */,
@@ -100,6 +181,86 @@
 				29427D7F1511215B00E90535 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		29427D8D1511216D00E90535 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				29932F7515280735002609C9 /* DApi.h */,
+				29932F7615280735002609C9 /* DApi.m */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		29427D961511218800E90535 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				29932F491527F7D1002609C9 /* MGPreferencePanel.h */,
+				29932F4A1527F7D1002609C9 /* MGPreferencePanel.m */,
+				29427D971511219300E90535 /* WatchController.h */,
+				29427D981511219300E90535 /* WatchController.m */,
+				29932F78152808A0002609C9 /* UsersController.h */,
+				29932F79152808A0002609C9 /* UsersController.m */,
+				2982A4C215292CFA0048F029 /* NotificationsController.h */,
+				2982A4C315292CFA0048F029 /* NotificationsController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		29932F551528064F002609C9 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				29932F741528070C002609C9 /* SCEvents */,
+				29932F701528067C002609C9 /* JSONKit */,
+				29932F5615280666002609C9 /* AFNetworking */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		29932F5615280666002609C9 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				29932F5715280679002609C9 /* AFNetworking.h */,
+				29932F5815280679002609C9 /* AFURLConnectionOperation.h */,
+				29932F5915280679002609C9 /* AFURLConnectionOperation.m */,
+				29932F5A15280679002609C9 /* AFHTTPRequestOperation.h */,
+				29932F5B15280679002609C9 /* AFHTTPRequestOperation.m */,
+				29932F5C15280679002609C9 /* AFJSONRequestOperation.h */,
+				29932F5D15280679002609C9 /* AFJSONRequestOperation.m */,
+				29932F5E15280679002609C9 /* AFXMLRequestOperation.h */,
+				29932F5F15280679002609C9 /* AFXMLRequestOperation.m */,
+				29932F6015280679002609C9 /* AFPropertyListRequestOperation.h */,
+				29932F6115280679002609C9 /* AFPropertyListRequestOperation.m */,
+				29932F6215280679002609C9 /* AFHTTPClient.h */,
+				29932F6315280679002609C9 /* AFHTTPClient.m */,
+				29932F6415280679002609C9 /* AFImageRequestOperation.h */,
+				29932F6515280679002609C9 /* AFImageRequestOperation.m */,
+				29932F6615280679002609C9 /* AFJSONUtilities.h */,
+				29932F6715280679002609C9 /* AFJSONUtilities.m */,
+			);
+			name = AFNetworking;
+			sourceTree = "<group>";
+		};
+		29932F701528067C002609C9 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				29932F711528068B002609C9 /* JSONKit.h */,
+				29932F721528068B002609C9 /* JSONKit.m */,
+			);
+			name = JSONKit;
+			sourceTree = "<group>";
+		};
+		29932F741528070C002609C9 /* SCEvents */ = {
+			isa = PBXGroup;
+			children = (
+				29427D8E1511217600E90535 /* SCEvent.h */,
+				29427D8F1511217600E90535 /* SCEvent.m */,
+				29427D901511217600E90535 /* SCEvents.h */,
+				29427D911511217600E90535 /* SCEvents.m */,
+				29427D921511217600E90535 /* SCConstants.h */,
+				29427D931511217600E90535 /* SCEventListenerProtocol.h */,
+			);
+			name = SCEvents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +273,7 @@
 				29427D681511215B00E90535 /* Sources */,
 				29427D691511215B00E90535 /* Frameworks */,
 				29427D6A1511215B00E90535 /* Resources */,
+				2962883B152BEAEB0088A6E4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -155,6 +317,9 @@
 				29427D7B1511215B00E90535 /* InfoPlist.strings in Resources */,
 				29427D811511215B00E90535 /* Credits.rtf in Resources */,
 				29427D871511215C00E90535 /* MainMenu.xib in Resources */,
+				29427DA4151126AB00E90535 /* app.png in Resources */,
+				29427DA5151126AB00E90535 /* app.tif in Resources */,
+				2982A4C115292B380048F029 /* Growl Registration Ticket.growlRegDict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +332,22 @@
 			files = (
 				29427D7D1511215B00E90535 /* main.m in Sources */,
 				29427D841511215B00E90535 /* DAppDelegate.m in Sources */,
+				29427D941511217600E90535 /* SCEvent.m in Sources */,
+				29427D951511217600E90535 /* SCEvents.m in Sources */,
+				29427D991511219300E90535 /* WatchController.m in Sources */,
+				29932F4B1527F7D1002609C9 /* MGPreferencePanel.m in Sources */,
+				29932F6815280679002609C9 /* AFURLConnectionOperation.m in Sources */,
+				29932F6915280679002609C9 /* AFHTTPRequestOperation.m in Sources */,
+				29932F6A15280679002609C9 /* AFJSONRequestOperation.m in Sources */,
+				29932F6B15280679002609C9 /* AFXMLRequestOperation.m in Sources */,
+				29932F6C15280679002609C9 /* AFPropertyListRequestOperation.m in Sources */,
+				29932F6D15280679002609C9 /* AFHTTPClient.m in Sources */,
+				29932F6E15280679002609C9 /* AFImageRequestOperation.m in Sources */,
+				29932F6F15280679002609C9 /* AFJSONUtilities.m in Sources */,
+				29932F731528068B002609C9 /* JSONKit.m in Sources */,
+				29932F7715280735002609C9 /* DApi.m in Sources */,
+				29932F7A152808A0002609C9 /* UsersController.m in Sources */,
+				2982A4C415292CFA0048F029 /* NotificationsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,9 +429,14 @@
 		29427D8B1511215C00E90535 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sync/Sync-Prefix.pch";
 				INFOPLIST_FILE = "Sync/Sync-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -259,9 +445,14 @@
 		29427D8C1511215C00E90535 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sync/Sync-Prefix.pch";
 				INFOPLIST_FILE = "Sync/Sync-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -286,6 +477,7 @@
 				29427D8C1511215C00E90535 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -107,13 +107,14 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
   // If folder is root directory, execute code
   BOOL isPath = [folder isEqual:watchFolder];
   if (isPath && event.eventFlags == 120064) {
-    NSLog(@"%@", @"NEW FILE EVENT (FILETYPE NOT FILTERED)");
     [self newFileDetect:watchPath];
   }
 }
 
 - (void)newFileDetect:(NSString *)watchPath
 {
+  NSLog(@"NEW FILE EVENT (FILETYPE NOT FILTERED)");
+
   // return list of current dir
   NSArray *filelist = [self filesIn:watchPath];
   NSArray *uniqueFiles = [self uniqueFilesFom:filelist:self.currentFiles];

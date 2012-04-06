@@ -69,14 +69,15 @@
 				<bool key="NSWindowIsRestorable">NO</bool>
 			</object>
 			<object class="NSCustomView" id="751352111">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSButton" id="657071273">
 						<reference key="NSNextResponder" ref="751352111"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{52, 59}, {296, 18}}</string>
+						<string key="NSFrame">{{52, 70}, {296, 18}}</string>
 						<reference key="NSSuperview" ref="751352111"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="985243240"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="447961402">
@@ -107,8 +108,9 @@
 					<object class="NSButton" id="612274178">
 						<reference key="NSNextResponder" ref="751352111"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{53, 84}, {296, 18}}</string>
+						<string key="NSFrame">{{53, 95}, {296, 18}}</string>
 						<reference key="NSSuperview" ref="751352111"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="657071273"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="542242429">
@@ -130,8 +132,9 @@
 					<object class="NSButton" id="759310363">
 						<reference key="NSNextResponder" ref="751352111"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{53, 108}, {172, 18}}</string>
+						<string key="NSFrame">{{53, 119}, {172, 18}}</string>
 						<reference key="NSSuperview" ref="751352111"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="612274178"/>
 						<string key="NSReuseIdentifierKey">_NS:771</string>
 						<bool key="NSEnabled">YES</bool>
@@ -155,8 +158,10 @@
 					<object class="NSButton" id="985243240">
 						<reference key="NSNextResponder" ref="751352111"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{260, 18}, {297, 18}}</string>
+						<string key="NSFrame">{{53, 45}, {297, 18}}</string>
 						<reference key="NSSuperview" ref="751352111"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="544804416">
 							<int key="NSCellFlags">-2080244224</int>
@@ -176,11 +181,13 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{440, 183}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="759310363"/>
 				<string key="NSClassName">NSView</string>
 			</object>
 			<object class="NSCustomView" id="712448723">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSTextField" id="836568400">
@@ -246,6 +253,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{166, 42}, {79, 32}}</string>
 						<reference key="NSSuperview" ref="712448723"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:687</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="988031991">
@@ -356,6 +364,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{440, 215}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="409218268"/>
 				<string key="NSClassName">NSView</string>
 			</object>
@@ -465,7 +474,7 @@
 			<object class="NSCustomObject" id="478245622">
 				<string key="NSClassName">NotificationsController</string>
 			</object>
-			<object class="NSCustomObject" id="21770732">
+			<object class="NSCustomObject" id="1015248405">
 				<string key="NSClassName">FilesController</string>
 			</object>
 			<object class="NSUserDefaultsController" id="759288815">
@@ -603,6 +612,14 @@
 					<int key="connectionID">720</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">growlCheckbox</string>
+						<reference key="source" ref="467418234"/>
+						<reference key="destination" ref="985243240"/>
+					</object>
+					<int key="connectionID">732</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">logIn:</string>
 						<reference key="source" ref="387609127"/>
@@ -683,6 +700,22 @@
 					<int key="connectionID">717</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">changeGrowl:</string>
+						<reference key="source" ref="387609127"/>
+						<reference key="destination" ref="985243240"/>
+					</object>
+					<int key="connectionID">730</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">growlCheckbox</string>
+						<reference key="source" ref="387609127"/>
+						<reference key="destination" ref="985243240"/>
+					</object>
+					<int key="connectionID">731</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">statusMenu</string>
 						<reference key="source" ref="48750879"/>
@@ -693,7 +726,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">openDFolder:</string>
-						<reference key="source" ref="21770732"/>
+						<reference key="source" ref="1015248405"/>
 						<reference key="destination" ref="642197946"/>
 					</object>
 					<int key="connectionID">728</int>
@@ -701,7 +734,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">launchWebsite:</string>
-						<reference key="source" ref="21770732"/>
+						<reference key="source" ref="1015248405"/>
 						<reference key="destination" ref="918798914"/>
 					</object>
 					<int key="connectionID">729</int>
@@ -844,10 +877,10 @@
 						<int key="objectID">558</int>
 						<reference key="object" ref="751352111"/>
 						<array class="NSMutableArray" key="children">
+							<reference ref="985243240"/>
+							<reference ref="759310363"/>
 							<reference ref="612274178"/>
 							<reference ref="657071273"/>
-							<reference ref="759310363"/>
-							<reference ref="985243240"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">View 1</string>
@@ -1022,7 +1055,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">727</int>
-						<reference key="object" ref="21770732"/>
+						<reference key="object" ref="1015248405"/>
 						<reference key="parent" ref="0"/>
 					</object>
 				</array>
@@ -1084,7 +1117,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">729</int>
+			<int key="maxID">732</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1163,6 +1196,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="browserCheckbox">NSButton</string>
 						<string key="contentView">NSView</string>
+						<string key="growlCheckbox">NSButton</string>
 						<string key="login">NSTextField</string>
 						<string key="loginCheckbox">NSButton</string>
 						<string key="password">NSTextField</string>
@@ -1179,6 +1213,10 @@
 						<object class="IBToOneOutletInfo" key="contentView">
 							<string key="name">contentView</string>
 							<string key="candidateClassName">NSView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="growlCheckbox">
+							<string key="name">growlCheckbox</string>
+							<string key="candidateClassName">NSButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="login">
 							<string key="name">login</string>
@@ -1227,6 +1265,7 @@
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="changeBrowser:">id</string>
+						<string key="changeGrowl:">id</string>
 						<string key="changeLoginItem:">id</string>
 						<string key="changePaste:">id</string>
 						<string key="logIn:">id</string>
@@ -1234,6 +1273,10 @@
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="changeBrowser:">
 							<string key="name">changeBrowser:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="changeGrowl:">
+							<string key="name">changeGrowl:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="changeLoginItem:">
@@ -1251,6 +1294,7 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="browserCheckbox">NSButton</string>
+						<string key="growlCheckbox">NSButton</string>
 						<string key="login">NSTextField</string>
 						<string key="loginCheckbox">NSButton</string>
 						<string key="password">NSTextField</string>
@@ -1260,6 +1304,10 @@
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="browserCheckbox">
 							<string key="name">browserCheckbox</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="growlCheckbox">
+							<string key="name">growlCheckbox</string>
 							<string key="candidateClassName">NSButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="login">

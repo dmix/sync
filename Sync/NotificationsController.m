@@ -1,12 +1,5 @@
-//
-//  NotificationsController.m
-//  Sync
-//
-//  Created by Dan McGrady on 4/1/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import "NotificationsController.h"
+#import "UsersController.h"
 
 @implementation NotificationsController
 
@@ -56,17 +49,19 @@
 {
   NSDictionary *userInfo = notification.userInfo;
   [self showGrowlWithTitle: @"Discuss.io"
-                  message: [NSString stringWithFormat:@"%@ has finished uploading", [userInfo objectForKey:@"file"]]];
+                   message: [NSString stringWithFormat:@"%@ has finished uploading", [userInfo objectForKey:@"file"]]];
 }
 
 - (void) showGrowlWithTitle: (NSString *) title message: (NSString *) message {
-  [GrowlApplicationBridge notifyWithTitle: title
-                              description: message
-                         notificationName: @"new_messages"
-                                 iconData: [self growlIcon]
-                                 priority: 0
-                                 isSticky: NO
-                             clickContext: nil];
+  if ([[UsersController growlValue] intValue] == 1) {
+    [GrowlApplicationBridge notifyWithTitle: title
+                                description: message
+                           notificationName: @"new_messages"
+                                   iconData: [self growlIcon]
+                                   priority: 0
+                                   isSticky: NO
+                               clickContext: nil];
+  }
 }
 
 - (NSData *) growlIcon {

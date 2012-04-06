@@ -17,6 +17,7 @@
   IBOutlet NSButton *loginCheckbox;
   IBOutlet NSButton *browserCheckbox;
   IBOutlet NSButton *pasteCheckbox;
+  IBOutlet NSButton *growlCheckbox;
 }
 
 @property (readwrite, retain) IBOutlet NSView *view1;

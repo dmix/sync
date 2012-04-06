@@ -18,6 +18,7 @@
   IBOutlet NSButton *loginCheckbox;
   IBOutlet NSButton *browserCheckbox;
   IBOutlet NSButton *pasteCheckbox;
+  IBOutlet NSButton *growlCheckbox;
 }
 
 - (void)loadFieldValues;
@@ -29,11 +30,13 @@
 + (NSString *)startupValue;
 + (NSString *)pasteValue;
 + (NSString *)browserValue;
++ (NSString *)growlValue;
 
 - (IBAction) logIn: (id) sender;
 - (IBAction) changeLoginItem: (id) sender;
 - (IBAction) changeBrowser: (id) sender;
 - (IBAction) changePaste: (id) sender;
+- (IBAction) changeGrowl: (id) sender;
 
 - (void)logInWith:(NSString *)loginText:(NSString *)passwordText;
 

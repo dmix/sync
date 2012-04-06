@@ -38,54 +38,38 @@ NSString * const View2IconImageName = @"NSUserAccounts";
 #pragma mark -
 #pragma mark INIT | AWAKE
 
-
-- (id) init {
-    
-	if (self = [super init]) {
-			//
-	}	
-	
-	return self;
-}
-
-
-
 - (IBAction) openPane: (id) sender {
+ 	[window center];
   [window makeKeyAndOrderFront:nil];
   [NSApp activateIgnoringOtherApps:YES];
 	[self mapViewsToToolbar];
 	[self firstPane];
 
-  // set default values
   if ([UsersController passwordValue] != nil) {
     [password setStringValue:[UsersController passwordValue]];
   }
-  [login setStringValue:[UsersController loginValue]];
 
+  [login setStringValue:[UsersController loginValue]];
   [loginCheckbox setState:[[UsersController startupValue] intValue]];
   [pasteCheckbox setState:[[UsersController pasteValue] intValue]];
   [browserCheckbox setState:[[UsersController browserValue] intValue]];
-
-	[window center];
+  [growlCheckbox setState:[[UsersController growlValue] intValue]];
 }
-
-
 
 #pragma mark -
 #pragma mark MAP | CHANGE
 
 
 - (void) mapViewsToToolbar {
-	
-    NSToolbar *toolbar = [window toolbar];
+	NSToolbar *toolbar = [window toolbar];
 	if (toolbar == nil) {        
 		toolbar = [[NSToolbar alloc] initWithIdentifier: [NSString stringWithFormat: @"%@.mgpreferencepanel.toolbar", AppTitle]];
 	}
 	
-    [toolbar setAllowsUserCustomization: NO];
-    [toolbar setAutosavesConfiguration: NO];
-    [toolbar setDisplayMode: NSToolbarDisplayModeIconAndLabel];
-    
+  [toolbar setAllowsUserCustomization: NO];
+  [toolbar setAutosavesConfiguration: NO];
+  [toolbar setDisplayMode: NSToolbarDisplayModeIconAndLabel];
+
 	[toolbar setDelegate: self]; 
 	
 	[window setToolbar: toolbar];	
@@ -99,19 +83,16 @@ NSString * const View2IconImageName = @"NSUserAccounts";
 
 
 - (IBAction) changePanes: (id) sender {
-    
 	NSView *view = nil;
-	
+
 	switch ([sender tag]) 	{
 		case 0:
 			[window setTitle: View1ItemTitle];
 			view = view1;
-
 			break;
 		case 1:
 			[window setTitle: View2ItemTitle];
 			view = view2;
-
 			break;
 		default:
 			break;
@@ -131,16 +112,13 @@ NSString * const View2IconImageName = @"NSUserAccounts";
 	[contentView addSubview: view];	
 }
 
-
-
 #pragma mark -
 #pragma mark FIRST PANE
-
 
 - (void) firstPane {
 	NSView *view = nil;
 	view = view1;
-	
+
 	NSRect windowFrame = [window frame];
 	windowFrame.size.height = [view frame].size.height + WINDOW_TOOLBAR_HEIGHT;
 	windowFrame.size.width = [view frame].size.width;
@@ -149,13 +127,11 @@ NSString * const View2IconImageName = @"NSUserAccounts";
 	if ([[contentView subviews] count] != 0) {
 		[[[contentView subviews] objectAtIndex:0] removeFromSuperview];
 	}
-	
+
 	[window setFrame: windowFrame display: YES animate: NO];
 	[contentView setFrame: [view frame]];
 	[contentView addSubview: view];	
 }
-
-
 
 #pragma mark -
 #pragma mark DEFAULT | ALLOWED | SELECTABLE
@@ -186,32 +162,28 @@ NSString * const View2IconImageName = @"NSUserAccounts";
 			nil];
 }
 
-
-
 #pragma mark -
 #pragma mark ITEM FOR IDENTIFIER
 
 
 - (NSToolbarItem*)toolbar: (NSToolbar*) toolbar itemForItemIdentifier: (NSString *) itemIdentifier willBeInsertedIntoToolbar: (BOOL) willBeInsertedIntoToolbar {
-    
 	NSToolbarItem *item = nil;
     if ([itemIdentifier isEqualToString: View1ItemIdentifier]) {
-        item = [[NSToolbarItem alloc] initWithItemIdentifier: itemIdentifier];
-        [item setPaletteLabel: View1ItemTitle];
-        [item setLabel: View1ItemTitle];
-        [item setImage: [NSImage imageNamed: View1IconImageName]];
-		[item setAction: @selector(changePanes:)];
-		[item setTag: 0];
+      item = [[NSToolbarItem alloc] initWithItemIdentifier: itemIdentifier];
+      [item setPaletteLabel: View1ItemTitle];
+      [item setLabel: View1ItemTitle];
+      [item setImage: [NSImage imageNamed: View1IconImageName]];
+      [item setAction: @selector(changePanes:)];
+      [item setTag: 0];
+    } 
+    else if ([itemIdentifier isEqualToString: View2ItemIdentifier]) {
+      item = [[NSToolbarItem alloc] initWithItemIdentifier: itemIdentifier];
+      [item setPaletteLabel: View2ItemTitle];
+      [item setLabel: View2ItemTitle];
+      [item setImage:[NSImage imageNamed: View2IconImageName]];
+      [item setAction: @selector(changePanes:)];
+      [item setTag: 1];
     }
-	else if ([itemIdentifier isEqualToString: View2ItemIdentifier]) {
-		
-        item = [[NSToolbarItem alloc] initWithItemIdentifier: itemIdentifier];
-        [item setPaletteLabel: View2ItemTitle];
-        [item setLabel: View2ItemTitle];
-        [item setImage:[NSImage imageNamed: View2IconImageName]];
-		[item setAction: @selector(changePanes:)];
-		[item setTag: 1];
-    }	
 	return item;
 }
 

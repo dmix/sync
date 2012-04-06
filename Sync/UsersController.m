@@ -26,6 +26,9 @@
   NSNumber *pasteState = [NSNumber numberWithInt:1];
   [defaultValues setObject:pasteState
                     forKey:@"DPaste"];
+  NSNumber *growlState = [NSNumber numberWithInt:1];
+  [defaultValues setObject:growlState
+                    forKey:@"DGrowl"];
 
   // Register the dictionary of defaults
   [[NSUserDefaults standardUserDefaults]
@@ -86,6 +89,11 @@
   return [defaults objectForKey:@"DBrowser"];
 }
 
++ (NSNumber *)growlValue {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  return [defaults objectForKey:@"DGrowl"];
+}
+
 - (IBAction) logIn: (id) sender {
 	NSString *loginText	= [login stringValue];
 	NSString *passwordText = [password stringValue];
@@ -140,6 +148,13 @@
   [[NSUserDefaults standardUserDefaults] setObject:state
                                              forKey:@"DPaste"];
   NSLog(@"Paste changed %@", state);
+}
+
+- (IBAction) changeGrowl: (id) sender {
+  NSNumber *state = [NSNumber numberWithInteger:[growlCheckbox state]];
+  [[NSUserDefaults standardUserDefaults] setObject:state
+                                            forKey:@"DGrowl"];
+  NSLog(@"Growl changed %@", state);
 }
 
 -(void) addAppAsLoginItem{

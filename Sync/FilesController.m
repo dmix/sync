@@ -28,7 +28,6 @@
     if(![fileManager fileExistsAtPath:uploadDir isDirectory:&isDir])
       if(![fileManager createDirectoryAtPath:uploadDir withIntermediateDirectories:YES attributes:nil error:NULL])
         NSLog(@"Error: Create folder failed %@", uploadDir);
-    
   }
   return self;
 }

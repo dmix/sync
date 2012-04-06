@@ -108,24 +108,32 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
   BOOL isPath = [folder isEqual:watchFolder];
   if (isPath && event.eventFlags == 120064) {
     NSLog(@"%@", @"NEW FILE EVENT (FILETYPE NOT FILTERED)");
+    [self newFileDetect:watchPath];
+  }
+}
+
+- (void)newFileDetect:(NSString *)watchPath
+{
+  // return list of current dir
+  NSArray *filelist = [self filesIn:watchPath];
+  NSArray *uniqueFiles = [self uniqueFilesFom:filelist:self.currentFiles];
+
+  NSUInteger i;
+  NSUInteger countr = [uniqueFiles count];
+  for (i = 0; i < countr; i++) {
+    // Retrieve the new file name
+    NSString *newFile = [uniqueFiles objectAtIndex: i];      
     
-    // return list of current dir
-    NSArray *filelist = [self filesIn:watchPath];
-    NSArray *uniqueFiles = [self uniqueFilesFom:filelist:self.currentFiles];
+    // Send start notification
+    NSString *uploadingText = [NSString stringWithFormat:@"Uploading file: %@", newFile];
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:uploadingText forKey:@"uploadingText"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"startUploadFile" object:nil userInfo:userInfo];
 
-    NSUInteger i;
-    NSUInteger countr = [uniqueFiles count];
-    for (i = 0; i < countr; i++) {
-      NSString *newFile = [uniqueFiles objectAtIndex: i];      
-      NSString *uploadingText = [NSString stringWithFormat:@"Uploading file: %@", newFile];
+    // Upload the file
+    [self uploadFile:watchPath:newFile];
 
-      // Send start notification
-      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:uploadingText forKey:@"uploadingText"];
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"startUploadFile" object:nil userInfo:userInfo];
-
-      [self uploadFile:watchPath:newFile];
-      [self.currentFiles addObject:newFile];     // Add new file to currentFiles array
-    }
+    // Add new file to currentFiles array
+    [self.currentFiles addObject:newFile];
   }
 }
 
@@ -160,12 +168,12 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
   [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
     NSLog(@"FINISHED UPLOADING");
 
+    // retrieve full url of the newly uploaded file
     NSDictionary *resultsDictionary = [operation.responseString objectFromJSONString];
     NSString *fullUrl = [NSString stringWithFormat:@"http://localhost:3000/app/documents/%@", [resultsDictionary valueForKeyPath:@"id"]];
 
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                           file, @"file", path, @"path", fullUrl, @"fullUrl",
-                           nil];
+    // Send end file upload notification
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys: file, @"file", path, @"path", fullUrl, @"fullUrl", nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"endUploadFile" object:nil userInfo:userInfo];
   } failure:nil];
 

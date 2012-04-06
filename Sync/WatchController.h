@@ -15,6 +15,7 @@
 - (void)setupEventListener;
 - (NSArray *)filesIn:(NSString *)dir;
 - (NSArray *)uniqueFilesFom:(NSArray *)arrayA:(NSArray *)arrayB;
+- (void)newFileDetect:(NSString *)watchPath;
 - (void)uploadFile:(NSString *)path:(NSString *)file;
 
 @end

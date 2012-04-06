@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29407083152F680F0083B583 /* green.gif in Resources */ = {isa = PBXBuildFile; fileRef = 29407082152F680F0083B583 /* green.gif */; };
+		29407086152F682B0083B583 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 29407085152F682B0083B583 /* green.png */; };
+		29407088152F6DD70083B583 /* grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 29407087152F6DD70083B583 /* grey.png */; };
+		29407097152F702A0083B583 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 29407096152F702A0083B583 /* Reachability.m */; };
+		29407099152F70D20083B583 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29407098152F70D20083B583 /* SystemConfiguration.framework */; };
+		2940709A152F70DB0083B583 /* SystemConfiguration.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 29407098152F70D20083B583 /* SystemConfiguration.framework */; };
+		2940709D152F73450083B583 /* FilesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2940709C152F73450083B583 /* FilesController.m */; };
 		29427D711511215B00E90535 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29427D701511215B00E90535 /* Cocoa.framework */; };
 		29427D7B1511215B00E90535 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29427D791511215B00E90535 /* InfoPlist.strings */; };
 		29427D7D1511215B00E90535 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29427D7C1511215B00E90535 /* main.m */; };
@@ -44,12 +51,21 @@
 			dstSubfolderSpec = 10;
 			files = (
 				2962883C152BEB050088A6E4 /* Growl-WithInstaller.framework in CopyFiles */,
+				2940709A152F70DB0083B583 /* SystemConfiguration.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		29407082152F680F0083B583 /* green.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = green.gif; sourceTree = "<group>"; };
+		29407085152F682B0083B583 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
+		29407087152F6DD70083B583 /* grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey.png; sourceTree = "<group>"; };
+		29407095152F702A0083B583 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		29407096152F702A0083B583 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		29407098152F70D20083B583 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SystemConfiguration.framework; sourceTree = "<group>"; };
+		2940709B152F73450083B583 /* FilesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesController.h; sourceTree = "<group>"; };
+		2940709C152F73450083B583 /* FilesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesController.m; sourceTree = "<group>"; };
 		29427D6C1511215B00E90535 /* Sync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29427D701511215B00E90535 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		29427D731511215B00E90535 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -111,12 +127,22 @@
 			files = (
 				29427D711511215B00E90535 /* Cocoa.framework in Frameworks */,
 				2962883A152BEADE0088A6E4 /* Growl-WithInstaller.framework in Frameworks */,
+				29407099152F70D20083B583 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29407094152F701F0083B583 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				29407095152F702A0083B583 /* Reachability.h */,
+				29407096152F702A0083B583 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		29427D611511215B00E90535 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +163,7 @@
 		29427D6F1511215B00E90535 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29407098152F70D20083B583 /* SystemConfiguration.framework */,
 				29628839152BEADE0088A6E4 /* Growl-WithInstaller.framework */,
 				29427D701511215B00E90535 /* Cocoa.framework */,
 				29427D721511215B00E90535 /* Other Frameworks */,
@@ -171,6 +198,9 @@
 		29427D771511215B00E90535 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				29407087152F6DD70083B583 /* grey.png */,
+				29407085152F682B0083B583 /* green.png */,
+				29407082152F680F0083B583 /* green.gif */,
 				2982A4C015292B380048F029 /* Growl Registration Ticket.growlRegDict */,
 				29427DA2151126AB00E90535 /* app.png */,
 				29427DA3151126AB00E90535 /* app.tif */,
@@ -203,6 +233,8 @@
 				29932F79152808A0002609C9 /* UsersController.m */,
 				2982A4C215292CFA0048F029 /* NotificationsController.h */,
 				2982A4C315292CFA0048F029 /* NotificationsController.m */,
+				2940709B152F73450083B583 /* FilesController.h */,
+				2940709C152F73450083B583 /* FilesController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -210,6 +242,7 @@
 		29932F551528064F002609C9 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				29407094152F701F0083B583 /* Reachability */,
 				29932F741528070C002609C9 /* SCEvents */,
 				29932F701528067C002609C9 /* JSONKit */,
 				29932F5615280666002609C9 /* AFNetworking */,
@@ -320,6 +353,9 @@
 				29427DA4151126AB00E90535 /* app.png in Resources */,
 				29427DA5151126AB00E90535 /* app.tif in Resources */,
 				2982A4C115292B380048F029 /* Growl Registration Ticket.growlRegDict in Resources */,
+				29407083152F680F0083B583 /* green.gif in Resources */,
+				29407086152F682B0083B583 /* green.png in Resources */,
+				29407088152F6DD70083B583 /* grey.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +384,8 @@
 				29932F7715280735002609C9 /* DApi.m in Sources */,
 				29932F7A152808A0002609C9 /* UsersController.m in Sources */,
 				2982A4C415292CFA0048F029 /* NotificationsController.m in Sources */,
+				29407097152F702A0083B583 /* Reachability.m in Sources */,
+				2940709D152F73450083B583 /* FilesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

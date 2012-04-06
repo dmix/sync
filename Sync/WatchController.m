@@ -1,51 +1,17 @@
-#import "WatchController.h"
-#import "UsersController.h"
 #import "SCEvents.h"
 #import "SCEvent.h"
-#import "UsersController.h"
 #import "DApi.h"
 #import "AFJSONRequestOperation.h"
 #import "JSONKit.h"
+
+#import "WatchController.h"
+#import "UsersController.h"
 
 static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
 
 @implementation WatchController
 
 @synthesize _currentFiles;
-
-- (id)init {
-  self = [super init];
-  if (self) {
-    NSFileManager *fileManager= [NSFileManager defaultManager]; 
-    BOOL isDir;
-
-    // Create discuss.io folder
-    NSString *directory = [NSHomeDirectory() stringByAppendingPathComponent:@"Discuss.io"];
-    if(![fileManager fileExistsAtPath:directory isDirectory:&isDir])
-      if(![fileManager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:NULL])
-        NSLog(@"Error: Create folder failed %@", directory);
-
-    // Create uploaded folder
-    NSString *uploadDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Discuss.io/Uploaded"];
-    if(![fileManager fileExistsAtPath:uploadDir isDirectory:&isDir])
-      if(![fileManager createDirectoryAtPath:uploadDir withIntermediateDirectories:YES attributes:nil error:NULL])
-        NSLog(@"Error: Create folder failed %@", uploadDir);
-    
-  }
-  return self;
-}
-
-- (IBAction) openDFolder: (id) sender {
-  NSString *directory = [NSHomeDirectory() stringByAppendingPathComponent:@"Discuss.io"];
-  NSURL *fileURL = [NSURL fileURLWithPath: directory];
-  [[NSWorkspace sharedWorkspace] openURL: fileURL]; 
-}
-
-- (IBAction) launchWebsite: (id) sender {
-  NSString *fullUrl = [NSString stringWithFormat: @"http://localhost:3000/api_login/%@", [UsersController tokenValue]];
-  [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:fullUrl]];
-}
-
 
 /**
  * Add the current list of files in the watched directory to an instance variable
@@ -150,20 +116,12 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
     NSUInteger i;
     NSUInteger countr = [uniqueFiles count];
     for (i = 0; i < countr; i++) {
-      NSString *newFile = [uniqueFiles objectAtIndex: i]; 
-      NotificationsController *growl = [NotificationsController sharedController];
-      
-      NSString *uploadingText = [NSString stringWithFormat:@"Uploading new file: %@", newFile];
-      // Growl: Uploading file
-      [growl showGrowlWithTitle: @"Discuss.io"
-                        message: uploadingText];
+      NSString *newFile = [uniqueFiles objectAtIndex: i];      
+      NSString *uploadingText = [NSString stringWithFormat:@"Uploading file: %@", newFile];
 
-      // Insert menu item: Uploading file
-      NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:uploadingText 
-                                                    action:nil keyEquivalent:@""]; 
-      [item autorelease];
-      [item setTarget:self];
-      [statusMenu insertItem:item atIndex:0];
+      // Send start notification
+      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:uploadingText forKey:@"uploadingText"];
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"startUploadFile" object:nil userInfo:userInfo];
 
       [self uploadFile:watchPath:newFile];
       [self.currentFiles addObject:newFile];     // Add new file to currentFiles array
@@ -172,12 +130,8 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
 }
 
 - (void)uploadFile:(NSString *)path:(NSString *)file {
-
-  // Define file paths and types
   NSString *filePath = [NSString stringWithFormat:@"%@/%@", path, file];
-  NSString *destPath = [NSString stringWithFormat:@"%@/Uploaded/%@", path, file];
   NSString *mimeType = [NSString stringWithFormat:@"image/%@", @"png"];
-  NSString *trashDir = [NSHomeDirectory() stringByAppendingPathComponent:@".Trash"];
   NSString *api_token = [UsersController tokenValue];
 
   NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -204,48 +158,20 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
 
   // Success and failure blocks
   [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-    NSDictionary *resultsDictionary = [operation.responseString objectFromJSONString];
-    NSString *docId	= [resultsDictionary valueForKeyPath:@"id"];
-    NSString *fullUrl = [NSString stringWithFormat:@"http://localhost:3000/app/documents/%@", docId];
-
-    NotificationsController *growl = [NotificationsController sharedController];
-    [growl showGrowlWithTitle: @"Discuss.io"
-                      message: [NSString stringWithFormat:@"%@ has finished uploading", file]];
-
     NSLog(@"FINISHED UPLOADING");
-//    [statusMenu removeItemAtIndex:0];
 
-    // open web browser
-    if ([[UsersController browserValue] intValue] == 1) {
-      [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:fullUrl]];
-    }
+    NSDictionary *resultsDictionary = [operation.responseString objectFromJSONString];
+    NSString *fullUrl = [NSString stringWithFormat:@"http://localhost:3000/app/documents/%@", [resultsDictionary valueForKeyPath:@"id"]];
 
-    // copy to clipboard
-    if ([[UsersController pasteValue] intValue] == 1) {
-      [self writeToPasteBoard:fullUrl];
-    }
-
-    // copy file to uploaded path
-    [[NSFileManager defaultManager] copyItemAtPath:filePath 
-                                            toPath:destPath 
-                                             error:nil];
-    // delete original file
-    [[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
-                                                 source:path destination:trashDir 
-                                                  files:[NSArray arrayWithObject:file] 
-                                                    tag:nil];
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                           file, @"file", path, @"path", fullUrl, @"fullUrl",
+                           nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"endUploadFile" object:nil userInfo:userInfo];
   } failure:nil];
 
   // Add file upload to queue
   NSOperationQueue *queue = [[[NSOperationQueue alloc] init] autorelease];
   [queue addOperation:operation];
-}
-
-- (BOOL) writeToPasteBoard:(NSString *)stringToWrite
-{
-  NSPasteboard *pasteBoard = [NSPasteboard generalPasteboard];
-  [pasteBoard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
-  return [pasteBoard setString:stringToWrite forType:NSStringPboardType];
 }
 
 #pragma mark -

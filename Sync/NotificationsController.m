@@ -30,6 +30,35 @@
   return self;
 }
 
+- (void)awakeFromNib
+{
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(startUploadFile:)
+   name:@"startUploadFile"
+   object:nil];
+  
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(endUploadFile:)
+   name:@"endUploadFile"
+   object:nil];
+}
+
+- (void)startUploadFile:(NSNotification *) notification
+{
+  NSDictionary *userInfo = notification.userInfo;
+  [self showGrowlWithTitle: @"Discuss.io"
+                   message: [userInfo objectForKey:@"uploadingText"]];
+}
+
+- (void)endUploadFile:(NSNotification *) notification
+{
+  NSDictionary *userInfo = notification.userInfo;
+  [self showGrowlWithTitle: @"Discuss.io"
+                  message: [NSString stringWithFormat:@"%@ has finished uploading", [userInfo objectForKey:@"file"]]];
+}
+
 - (void) showGrowlWithTitle: (NSString *) title message: (NSString *) message {
   [GrowlApplicationBridge notifyWithTitle: title
                               description: message

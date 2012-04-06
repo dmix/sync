@@ -13,13 +13,14 @@
 @interface DAppDelegate : NSObject <NSApplicationDelegate> {
   IBOutlet NSMenu *statusMenu;
   NSStatusItem *statusItem;
-  
 }
 
 @property (nonatomic, retain) IBOutlet NSMenu *statusMenu;
 @property (nonatomic, retain) NSStatusItem *statusItem;
+@property (assign, nonatomic) IBOutlet NSTextField * blockLabel;
 
-- (void)updateStatusMenu;
+- (void)startUploadFile:(NSNotification *) notification;
+- (void)endUploadFile:(NSNotification *) notification;
 - (void)startWatching;
 - (IBAction)showAbout:(id)sender;
 

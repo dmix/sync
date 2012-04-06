@@ -15,9 +15,6 @@
 - (void)setupEventListener;
 - (NSArray *)filesIn:(NSString *)dir;
 - (NSArray *)uniqueFilesFom:(NSArray *)arrayA:(NSArray *)arrayB;
-- (IBAction) openDFolder: (id) sender;
-- (IBAction) launchWebsite: (id) sender;
 - (void)uploadFile:(NSString *)path:(NSString *)file;
-- (BOOL) writeToPasteBoard:(NSString *)stringToWrite;
 
 @end

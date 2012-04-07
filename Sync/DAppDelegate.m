@@ -10,7 +10,15 @@
 
 @synthesize statusMenu;
 @synthesize statusItem;
+@synthesize watcher;
 @synthesize blockLabel = _blockLabel;
+
+- (id)init {
+  self = [super init];
+  if (self) {
+  }
+  return self;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -26,17 +34,20 @@
     if ([UsersController tokenValue] == @"") {
       [progressItem setTitle:@"Please log in"];
       self.statusItem.image = [NSImage imageNamed:@"grey.png"];
+      watcher._disableWatcher = YES;
     }
     else {
       [progressItem setTitle:@"All files uploaded"];
       self.statusItem.image = [NSImage imageNamed:@"app.gif"];
+      watcher._disableWatcher = NO;
     }
   };
-  
+
   reach.unreachableBlock = ^(Reachability*reach)
   {
     [progressItem setTitle:@"No internet connectivity"];
     self.statusItem.image = [NSImage imageNamed:@"grey.png"];
+    watcher._disableWatcher = YES;
   };
   
   [reach startNotifier];
@@ -46,11 +57,11 @@
 - (void)startWatching
 {
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-  WatchController *controller = [[[WatchController alloc] init] autorelease];
-  NSArray *filesArray = [controller filesIn:@"/Users/dmix/Discuss.io"];
-  [controller setCurrentFiles:filesArray];
-  [controller setupEventListener];
+  watcher = [[[WatchController alloc] init] autorelease];
+  NSArray *filesArray = [watcher filesIn:@"/Users/dmix/Discuss.io"];
+  NSMutableArray *mutaFilesArray = [[filesArray copy] autorelease];
+  [watcher setCurrentFiles:mutaFilesArray];
+  [watcher startEventListener];
 
   [[NSRunLoop currentRunLoop] run];
   [pool release];
@@ -114,12 +125,14 @@
 {
   [progressItem setTitle:@"All files uploaded"];
   self.statusItem.image = [NSImage imageNamed:@"app.gif"];
+  watcher._disableWatcher = NO;
 }
 
 - (void)loggedOut:(NSNotification *) notification
 {
   [progressItem setTitle:@"Please log in"];
   self.statusItem.image = [NSImage imageNamed:@"grey.png"];
+  watcher._disableWatcher = YES;
 }
 
 - (void)dealloc

@@ -13,8 +13,12 @@
 
 @property (nonatomic, copy, getter=currentFiles, setter=setCurrentFiles:) NSMutableArray *_currentFiles;
 @property (nonatomic, copy) NSOperationQueue *_queue;
+@property (nonatomic, copy) SCEvents *_events;
+@property (nonatomic) BOOL _disableWatcher;
 
-- (void)setupEventListener;
+
+- (void)startEventListener;
+- (void)stopEventListener;
 - (NSArray *)filesIn:(NSString *)dir;
 - (NSArray *)uniqueFilesFom:(NSArray *)arrayA:(NSArray *)arrayB;
 - (void)newFileDetect:(NSString *)watchPath;

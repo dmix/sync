@@ -14,11 +14,17 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
 
 @synthesize _currentFiles;
 @synthesize _queue;
+@synthesize _events;
+@synthesize _disableWatcher;
 
 - (id)init {
   self = [super init];
   if (self) {
+    _disableWatcher = NO;
     _queue = [[NSOperationQueue alloc] init];
+    _events = [[SCEvents alloc] init];
+    [_events setIgnoreEventsFromSubDirs:1];
+    [_events setDelegate:self];
   }
   return self;
 }
@@ -27,7 +33,7 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
  * Add the current list of files in the watched directory to an instance variable
  */
 - (void)setCurrentFiles:(NSArray *)newArray {
-  
+
   if ( _currentFiles != newArray ) { 
     [_currentFiles release];
     _currentFiles = [newArray mutableCopy];
@@ -41,20 +47,15 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
  * The event stream is started by calling startWatchingPaths: while passing the paths
  * to be watched.
  */
-- (void)setupEventListener
+- (void)startEventListener
 {
-	if (_events) return;
-    _events = [[SCEvents alloc] init];
-    [_events setIgnoreEventsFromSubDirs:1];
-    [_events setDelegate:self];
-    
-    NSMutableArray *paths = [NSMutableArray arrayWithObject:[NSHomeDirectory() stringByAppendingPathComponent:SCEventsDownloadsDirectory]];
-
-	// Start receiving events
+  NSMutableArray *paths = [NSMutableArray arrayWithObject:[NSHomeDirectory() stringByAppendingPathComponent:SCEventsDownloadsDirectory]];
 	[_events startWatchingPaths:paths];
+}
 
-	// Display a description of the stream
-  // NSLog(@"%@", [_events streamDescription]);	
+- (void)stopEventListener
+{
+	[_events stopWatchingPaths];
 }
 
 /**
@@ -103,6 +104,9 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
  */
 - (void)pathWatcher:(SCEvents *)pathWatcher eventOccurred:(SCEvent *)event
 {
+  if (_disableWatcher) {
+    return;
+  }
   // Retrieve watched path root folder
   NSString *watchPath = [pathWatcher.watchedPaths objectAtIndex:0];
   NSArray *dirs = [watchPath componentsSeparatedByString: @"/"];

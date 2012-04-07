@@ -50,26 +50,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sync/DAppDelegate.m"
-         timestampString = "355449452.030892"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "54"
-         endingLineNumber = "54"
-         landmarkName = "-startWatching"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "Sync/WatchController.m"
-         timestampString = "355451399.00456"
+         timestampString = "355457882.051617"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "107"
-         endingLineNumber = "107"
+         startingLineNumber = "111"
+         endingLineNumber = "111"
          landmarkName = "-pathWatcher:eventOccurred:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -78,14 +64,14 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sync/DAppDelegate.m"
-         timestampString = "355449452.030892"
+         filePath = "Sync/DAppDelegate.h"
+         timestampString = "355458096.847438"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "52"
-         endingLineNumber = "52"
-         landmarkName = "-startWatching"
-         landmarkType = "5">
+         startingLineNumber = "23"
+         endingLineNumber = "23"
+         landmarkName = "watcher"
+         landmarkType = "19">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

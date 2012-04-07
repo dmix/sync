@@ -14,11 +14,13 @@
   IBOutlet NSMenu *statusMenu;
   NSStatusItem *statusItem;
   IBOutlet NSMenuItem *progressItem;
+  WatchController *watcher;
 }
 
 @property (nonatomic, retain) IBOutlet NSMenu *statusMenu;
 @property (nonatomic, retain) NSStatusItem *statusItem;
 @property (assign, nonatomic) IBOutlet NSTextField * blockLabel;
+@property (nonatomic, copy) WatchController *watcher;
 
 - (void)startUploadFile:(NSNotification *) notification;
 - (void)endUploadFile:(NSNotification *) notification;

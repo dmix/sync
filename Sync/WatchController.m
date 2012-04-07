@@ -1,3 +1,4 @@
+#import "Constants.h"
 #import "SCEvents.h"
 #import "SCEvent.h"
 #import "DApi.h"
@@ -12,6 +13,15 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
 @implementation WatchController
 
 @synthesize _currentFiles;
+@synthesize _queue;
+
+- (id)init {
+  self = [super init];
+  if (self) {
+    _queue = [[NSOperationQueue alloc] init];
+  }
+  return self;
+}
 
 /**
  * Add the current list of files in the watched directory to an instance variable
@@ -149,7 +159,7 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
 
   // Set up API request
   NSMutableURLRequest *request = [[DApi sharedClient] multipartFormRequestWithMethod:@"POST" 
-                                                                                path:@"/api/documents.json" 
+                                                                                path:@"api/documents.json" 
                                                                           parameters:params 
                                                            constructingBodyWithBlock:^(id <AFMultipartFormData> formData) {
                                                              NSData *data= [NSData dataWithContentsOfFile:filePath];
@@ -168,10 +178,11 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
   // Success and failure blocks
   [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
     NSLog(@"FINISHED UPLOADING");
-
     // retrieve full url of the newly uploaded file
     NSDictionary *resultsDictionary = [operation.responseString objectFromJSONString];
-    NSString *fullUrl = [NSString stringWithFormat:@"http://localhost:3000/app/documents/%@", [resultsDictionary valueForKeyPath:@"id"]];
+    NSMutableString *fullUrl = [NSMutableString stringWithString:Domain];
+    [fullUrl appendString:@"app/documents/"];
+    [fullUrl appendString:[NSString stringWithFormat:@"%@", [resultsDictionary valueForKeyPath:@"id"]]];
 
     // Send end file upload notification
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys: file, @"file", path, @"path", fullUrl, @"fullUrl", nil];
@@ -179,8 +190,7 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
   } failure:nil];
 
   // Add file upload to queue
-  NSOperationQueue *queue = [[[NSOperationQueue alloc] init] autorelease];
-  [queue addOperation:operation];
+  [_queue addOperation:operation];
 }
 
 #pragma mark -
@@ -189,6 +199,7 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
 {
 	[_events release], _events = nil;
   [_currentFiles release];
+  [_queue release];
 	[super dealloc];
 }
 

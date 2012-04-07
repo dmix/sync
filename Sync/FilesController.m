@@ -73,16 +73,16 @@
 
 - (void)openWebBrowser:(NSNotification *) notification
 {
-  NSDictionary *userInfo = notification.userInfo;
   if ([[UsersController browserValue] intValue] == 1) {
+    NSDictionary *userInfo = notification.userInfo;
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[userInfo objectForKey:@"fullUrl"]]];
   }
 }
 
 - (void)copyToClipboard:(NSNotification *) notification
 {
-  NSDictionary *userInfo = notification.userInfo;
   if ([[UsersController pasteValue] intValue] == 1) {
+    NSDictionary *userInfo = notification.userInfo;
     [self writeToPasteBoard:[userInfo objectForKey:@"fullUrl"]];
   }
 }

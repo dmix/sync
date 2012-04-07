@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Sync/UsersController.m"
-         timestampString = "355443999.824191"
+         timestampString = "355447625.688033"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
          landmarkName = "-loadFieldValues"
          landmarkType = "5">
       </FileBreakpoint>
@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Sync/UsersController.m"
-         timestampString = "355443999.824191"
+         timestampString = "355447625.688033"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
+         startingLineNumber = "36"
+         endingLineNumber = "36"
          landmarkName = "+initialize"
          landmarkType = "5">
       </FileBreakpoint>
@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Sync/UsersController.m"
-         timestampString = "355443999.824191"
+         timestampString = "355447625.688033"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
+         startingLineNumber = "103"
+         endingLineNumber = "103"
          landmarkName = "-logIn:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Sync/DAppDelegate.m"
-         timestampString = "355430690.80674"
+         timestampString = "355449452.030892"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
          landmarkName = "-startWatching"
          landmarkType = "5">
       </FileBreakpoint>
@@ -65,12 +65,26 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Sync/WatchController.m"
-         timestampString = "355443106.935687"
+         timestampString = "355451399.00456"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "97"
-         endingLineNumber = "97"
+         startingLineNumber = "107"
+         endingLineNumber = "107"
          landmarkName = "-pathWatcher:eventOccurred:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sync/DAppDelegate.m"
+         timestampString = "355449452.030892"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
+         landmarkName = "-startWatching"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

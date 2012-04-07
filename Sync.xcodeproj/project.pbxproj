@@ -14,6 +14,7 @@
 		29407099152F70D20083B583 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29407098152F70D20083B583 /* SystemConfiguration.framework */; };
 		2940709A152F70DB0083B583 /* SystemConfiguration.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 29407098152F70D20083B583 /* SystemConfiguration.framework */; };
 		2940709D152F73450083B583 /* FilesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2940709C152F73450083B583 /* FilesController.m */; };
+		294070A0152FC04A0083B583 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2940709F152FC04A0083B583 /* Constants.m */; };
 		29427D711511215B00E90535 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29427D701511215B00E90535 /* Cocoa.framework */; };
 		29427D7B1511215B00E90535 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29427D791511215B00E90535 /* InfoPlist.strings */; };
 		29427D7D1511215B00E90535 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29427D7C1511215B00E90535 /* main.m */; };
@@ -66,6 +67,8 @@
 		29407098152F70D20083B583 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SystemConfiguration.framework; sourceTree = "<group>"; };
 		2940709B152F73450083B583 /* FilesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesController.h; sourceTree = "<group>"; };
 		2940709C152F73450083B583 /* FilesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesController.m; sourceTree = "<group>"; };
+		2940709E152FC04A0083B583 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		2940709F152FC04A0083B583 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		29427D6C1511215B00E90535 /* Sync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29427D701511215B00E90535 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		29427D731511215B00E90535 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -191,6 +194,7 @@
 				29427D831511215B00E90535 /* DAppDelegate.m */,
 				29427D851511215C00E90535 /* MainMenu.xib */,
 				29427D771511215B00E90535 /* Supporting Files */,
+				29427D7C1511215B00E90535 /* main.m */,
 			);
 			path = Sync;
 			sourceTree = "<group>";
@@ -206,7 +210,6 @@
 				29427DA3151126AB00E90535 /* app.tif */,
 				29427D781511215B00E90535 /* Sync-Info.plist */,
 				29427D791511215B00E90535 /* InfoPlist.strings */,
-				29427D7C1511215B00E90535 /* main.m */,
 				29427D7E1511215B00E90535 /* Sync-Prefix.pch */,
 				29427D7F1511215B00E90535 /* Credits.rtf */,
 			);
@@ -216,8 +219,10 @@
 		29427D8D1511216D00E90535 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				2940709E152FC04A0083B583 /* Constants.h */,
 				29932F7515280735002609C9 /* DApi.h */,
 				29932F7615280735002609C9 /* DApi.m */,
+				2940709F152FC04A0083B583 /* Constants.m */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				2982A4C415292CFA0048F029 /* NotificationsController.m in Sources */,
 				29407097152F702A0083B583 /* Reachability.m in Sources */,
 				2940709D152F73450083B583 /* FilesController.m in Sources */,
+				294070A0152FC04A0083B583 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

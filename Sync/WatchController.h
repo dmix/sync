@@ -7,10 +7,12 @@
 {
 	SCEvents *_events;
   NSMutableArray *_currentFiles;
+  NSOperationQueue *_queue;
   IBOutlet NSMenu *statusMenu;
 }
 
 @property (nonatomic, copy, getter=currentFiles, setter=setCurrentFiles:) NSMutableArray *_currentFiles;
+@property (nonatomic, copy) NSOperationQueue *_queue;
 
 - (void)setupEventListener;
 - (NSArray *)filesIn:(NSString *)dir;

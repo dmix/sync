@@ -1,5 +1,6 @@
 #import "DAppDelegate.h"
 #import "WatchController.h"
+#import "UsersController.h"
 #import "NotificationsController.h"
 #import "SCEvents.h"
 #import "SCEvent.h"
@@ -22,12 +23,20 @@
   // set the blocks 
   reach.reachableBlock = ^(Reachability*reach)
   {
-    NSLog(@"REACHABLE!");
+    if ([UsersController tokenValue] == @"") {
+      [progressItem setTitle:@"Please log in"];
+      self.statusItem.image = [NSImage imageNamed:@"grey.png"];
+    }
+    else {
+      [progressItem setTitle:@"All files uploaded"];
+      self.statusItem.image = [NSImage imageNamed:@"app.gif"];
+    }
   };
   
   reach.unreachableBlock = ^(Reachability*reach)
   {
-    NSLog(@"UNREACHABLE!");
+    [progressItem setTitle:@"No internet connectivity"];
+    self.statusItem.image = [NSImage imageNamed:@"grey.png"];
   };
   
   [reach startNotifier];
@@ -63,6 +72,18 @@
    name:@"endUploadFile"
    object:nil ];
 
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(loggedIn:)
+   name:@"loggedIn"
+   object:nil ];
+
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(loggedOut:)
+   name:@"loggedOut"
+   object:nil ];
+  
   self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength]; 
   [self.statusItem setMenu:self.statusMenu];
   [self.statusItem setHighlightMode:YES];
@@ -79,20 +100,26 @@
 - (void)startUploadFile:(NSNotification *) notification
 {
   NSDictionary *userInfo = notification.userInfo;
-  NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:[userInfo objectForKey:@"uploadingText"]
-                                                action:nil keyEquivalent:@""]; 
-  [item autorelease];
-  [item setTarget:self];
-  [statusMenu insertItem:item atIndex:0];
-  [statusMenu update];
+  [progressItem setTitle:[userInfo objectForKey:@"uploadingText"]];
   self.statusItem.image = [NSImage imageNamed:@"green.png"];
 }
 
 - (void)endUploadFile:(NSNotification *) notification
 {
-  [statusMenu removeItemAtIndex:0];
-  [statusMenu update];
+  [progressItem setTitle:@"All files uploaded"];
   self.statusItem.image = [NSImage imageNamed:@"app.gif"];
+}
+
+- (void)loggedIn:(NSNotification *) notification
+{
+  [progressItem setTitle:@"All files uploaded"];
+  self.statusItem.image = [NSImage imageNamed:@"app.gif"];
+}
+
+- (void)loggedOut:(NSNotification *) notification
+{
+  [progressItem setTitle:@"Please log in"];
+  self.statusItem.image = [NSImage imageNamed:@"grey.png"];
 }
 
 - (void)dealloc

@@ -7,9 +7,8 @@
 //
 
 #import "DApi.h"
+#import "Constants.h"
 #import "AFJSONRequestOperation.h"
-
-NSString * const discussURL = @"http://localhost:3000/";
 
 @implementation DApi
 
@@ -17,7 +16,7 @@ NSString * const discussURL = @"http://localhost:3000/";
   static DApi *_sharedClient = nil;
   static dispatch_once_t oncePredicate;
   dispatch_once(&oncePredicate, ^{
-    _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:discussURL]];
+    _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:Domain]];
   });
   
   return _sharedClient;

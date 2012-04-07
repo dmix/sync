@@ -29,6 +29,8 @@
   NSNumber *growlState = [NSNumber numberWithInt:1];
   [defaultValues setObject:growlState
                     forKey:@"DGrowl"];
+  [defaultValues setObject:@""
+                    forKey:@"DToken"];
 
   // Register the dictionary of defaults
   [[NSUserDefaults standardUserDefaults]
@@ -113,14 +115,13 @@
     NSString *tokenText	= [responseObject valueForKeyPath:@"single_access_token"];
     NSLog(@"single_access_token: %@", tokenText);
 
-    NotificationsController *growl = [NotificationsController sharedController];
-    [growl showGrowlWithTitle: @"Discuss.io"
-                      message: @"Logged in successfully"];
-
     [status setStringValue:[NSString stringWithFormat: @"Logged in as: %@", [responseObject valueForKeyPath:@"login"]]];
     [UsersController setLoginPassword:loginText:passwordText:tokenText];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"loggedIn" object:nil];
   } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
     [status setStringValue:@"Password or email is incorrect"];
+    [UsersController setLoginPassword:loginText:passwordText:@""];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"loggedOut" object:nil];
   }];
 }
 

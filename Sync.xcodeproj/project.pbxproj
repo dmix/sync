@@ -11,8 +11,6 @@
 		29407086152F682B0083B583 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 29407085152F682B0083B583 /* green.png */; };
 		29407088152F6DD70083B583 /* grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 29407087152F6DD70083B583 /* grey.png */; };
 		29407097152F702A0083B583 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 29407096152F702A0083B583 /* Reachability.m */; };
-		29407099152F70D20083B583 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29407098152F70D20083B583 /* SystemConfiguration.framework */; };
-		2940709A152F70DB0083B583 /* SystemConfiguration.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 29407098152F70D20083B583 /* SystemConfiguration.framework */; };
 		2940709D152F73450083B583 /* FilesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2940709C152F73450083B583 /* FilesController.m */; };
 		294070A0152FC04A0083B583 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2940709F152FC04A0083B583 /* Constants.m */; };
 		29427D711511215B00E90535 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29427D701511215B00E90535 /* Cocoa.framework */; };
@@ -30,6 +28,7 @@
 		2962883C152BEB050088A6E4 /* Growl-WithInstaller.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 29628839152BEADE0088A6E4 /* Growl-WithInstaller.framework */; };
 		2982A4C115292B380048F029 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 2982A4C015292B380048F029 /* Growl Registration Ticket.growlRegDict */; };
 		2982A4C415292CFA0048F029 /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2982A4C315292CFA0048F029 /* NotificationsController.m */; };
+		298694C51530BA380039A138 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 298694C41530BA380039A138 /* SystemConfiguration.framework */; };
 		29932F4B1527F7D1002609C9 /* MGPreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F4A1527F7D1002609C9 /* MGPreferencePanel.m */; };
 		29932F6815280679002609C9 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F5915280679002609C9 /* AFURLConnectionOperation.m */; };
 		29932F6915280679002609C9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29932F5B15280679002609C9 /* AFHTTPRequestOperation.m */; };
@@ -52,7 +51,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				2962883C152BEB050088A6E4 /* Growl-WithInstaller.framework in CopyFiles */,
-				2940709A152F70DB0083B583 /* SystemConfiguration.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +62,6 @@
 		29407087152F6DD70083B583 /* grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey.png; sourceTree = "<group>"; };
 		29407095152F702A0083B583 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		29407096152F702A0083B583 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		29407098152F70D20083B583 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SystemConfiguration.framework; sourceTree = "<group>"; };
 		2940709B152F73450083B583 /* FilesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesController.h; sourceTree = "<group>"; };
 		2940709C152F73450083B583 /* FilesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesController.m; sourceTree = "<group>"; };
 		2940709E152FC04A0083B583 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -96,6 +93,7 @@
 		2982A4C015292B380048F029 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		2982A4C215292CFA0048F029 /* NotificationsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsController.h; sourceTree = "<group>"; };
 		2982A4C315292CFA0048F029 /* NotificationsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsController.m; sourceTree = "<group>"; };
+		298694C41530BA380039A138 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		29932F491527F7D1002609C9 /* MGPreferencePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPreferencePanel.h; sourceTree = "<group>"; };
 		29932F4A1527F7D1002609C9 /* MGPreferencePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPreferencePanel.m; sourceTree = "<group>"; };
 		29932F5715280679002609C9 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -128,9 +126,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				298694C51530BA380039A138 /* SystemConfiguration.framework in Frameworks */,
 				29427D711511215B00E90535 /* Cocoa.framework in Frameworks */,
 				2962883A152BEADE0088A6E4 /* Growl-WithInstaller.framework in Frameworks */,
-				29407099152F70D20083B583 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +164,7 @@
 		29427D6F1511215B00E90535 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				29407098152F70D20083B583 /* SystemConfiguration.framework */,
+				298694C41530BA380039A138 /* SystemConfiguration.framework */,
 				29628839152BEADE0088A6E4 /* Growl-WithInstaller.framework */,
 				29427D701511215B00E90535 /* Cocoa.framework */,
 				29427D721511215B00E90535 /* Other Frameworks */,
@@ -447,7 +445,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -466,7 +464,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
@@ -482,6 +480,7 @@
 				INFOPLIST_FILE = "Sync/Sync-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -498,6 +497,7 @@
 				INFOPLIST_FILE = "Sync/Sync-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -111,7 +111,13 @@
 - (void)startUploadFile:(NSNotification *) notification
 {
   NSDictionary *userInfo = notification.userInfo;
-  [progressItem setTitle:[userInfo objectForKey:@"uploadingText"]];
+  NSString *origString = [userInfo objectForKey:@"uploadingText"];
+  const int clipLength = 30;
+  if([origString length] > clipLength)
+  {
+    origString = [NSString stringWithFormat:@"%@...",[origString substringToIndex:clipLength]];
+  }
+  [progressItem setTitle:origString];
   self.statusItem.image = [NSImage imageNamed:@"green.png"];
 }
 

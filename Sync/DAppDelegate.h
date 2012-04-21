@@ -9,12 +9,16 @@
 #import <Cocoa/Cocoa.h>
 #import "SCEvents.h"
 #import "WatchController.h"
+#import "Reachability.h"
 
 @interface DAppDelegate : NSObject <NSApplicationDelegate> {
   IBOutlet NSMenu *statusMenu;
   NSStatusItem *statusItem;
   IBOutlet NSMenuItem *progressItem;
   WatchController *watcher;
+  Reachability* hostReach;
+  Reachability* internetReach;
+  Reachability* wifiReach;
 }
 
 @property (nonatomic, retain) IBOutlet NSMenu *statusMenu;
@@ -25,6 +29,8 @@
 - (void)startUploadFile:(NSNotification *) notification;
 - (void)endUploadFile:(NSNotification *) notification;
 - (void)startWatching;
+- (void)isReachable;
+- (void)isNotReachable;
 - (void)loggedIn:(NSNotification *) notification;
 - (void)loggedOut:(NSNotification *) notification;
 - (IBAction)showAbout:(id)sender;

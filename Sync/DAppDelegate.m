@@ -26,31 +26,75 @@
                            toTarget:self
                          withObject:nil];
 
-  Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
-  
-  // set the blocks 
-  reach.reachableBlock = ^(Reachability*reach)
-  {
-    if ([UsersController tokenValue] == @"") {
-      [progressItem setTitle:@"Please log in"];
-      self.statusItem.image = [NSImage imageNamed:@"grey.png"];
-      watcher._disableWatcher = YES;
-    }
-    else {
-      [progressItem setTitle:@"All files uploaded"];
-      self.statusItem.image = [NSImage imageNamed:@"app.gif"];
-      watcher._disableWatcher = NO;
-    }
-  };
+  [[NSNotificationCenter defaultCenter] addObserver: self
+                                        selector: @selector(reachabilityChanged:)
+                                        name: kReachabilityChangedNotification
+                                        object: nil];
 
-  reach.unreachableBlock = ^(Reachability*reach)
+  hostReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
+	[hostReach startNotifier];
+	
+  internetReach = [[Reachability reachabilityForInternetConnection] retain];
+	[internetReach startNotifier];
+  
+  wifiReach = [[Reachability reachabilityForLocalWiFi] retain];
+	[wifiReach startNotifier];
+}
+
+//Called by Reachability whenever status changes.
+- (void) reachabilityChanged: (NSNotification* )note
+{
+  NSLog(@"rchanged");
+	Reachability* curReach = [note object];
+	NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+  NetworkStatus netStatus = [curReach currentReachabilityStatus];
+  BOOL connectionRequired= [curReach connectionRequired];
+  NSString* statusString= @"";
+  switch (netStatus)
   {
-    [progressItem setTitle:@"No internet connectivity"];
+    case NotReachable:
+    {
+      [self isNotReachable];
+      //Minor interface detail- connectionRequired may return yes, even when the host is unreachable.  We cover that up here...
+      connectionRequired= NO;  
+      break;
+    }      
+    case ReachableViaWWAN:
+    {
+      [self isReachable];
+      break;
+    }
+    case ReachableViaWiFi:
+    {
+      [self isReachable];
+      break;
+    }
+  }
+  if (connectionRequired)
+  {
+    statusString= [NSString stringWithFormat: @"%@, Connection Required", statusString];
+  }
+}
+
+- (void)isReachable
+{
+  if ([UsersController tokenValue] == @"") {
+    [progressItem setTitle:@"Please log in"];
     self.statusItem.image = [NSImage imageNamed:@"grey.png"];
     watcher._disableWatcher = YES;
-  };
-  
-  [reach startNotifier];
+  }
+  else {
+    [progressItem setTitle:@"All files uploaded"];
+    self.statusItem.image = [NSImage imageNamed:@"app.gif"];
+    watcher._disableWatcher = NO;
+  }
+}
+
+- (void)isNotReachable
+{
+  [progressItem setTitle:@"No internet connectivity"];
+  self.statusItem.image = [NSImage imageNamed:@"grey.png"];
+  watcher._disableWatcher = YES;
 }
 
 

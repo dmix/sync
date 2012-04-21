@@ -120,6 +120,7 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
 
   // If folder is root directory, execute code
   BOOL isPath = [folder isEqual:watchFolder];
+  
   if (isPath && event.eventFlags == 120064) {
     [self newFileDetect:watchPath];
   }
@@ -138,7 +139,7 @@ static NSString *SCEventsDownloadsDirectory = @"Discuss.io";
   for (i = 0; i < countr; i++) {
     // Retrieve the new file name
     NSString *newFile = [uniqueFiles objectAtIndex: i];      
-    
+
     // Send start notification
     NSString *uploadingText = [NSString stringWithFormat:@"Uploading file: %@", newFile];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:uploadingText forKey:@"uploadingText"];
